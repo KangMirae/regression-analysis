@@ -1,7 +1,8 @@
+🇪🇸 Spanish version available here: [README.es.md](README.es.md)
+
 # 🎓 Academic Performance Prediction  
 ### *Student Performance Regression Project*
 
-🇪🇸 Spanish version available here: [README.es.md](README.es.md)
 
 <div align="center">
 

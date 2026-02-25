@@ -187,8 +187,8 @@ Design elements include:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Bootcamp-IA-P6/Proyecto5_Regression_Equipo1.git
-cd proyecto5_regression_equipo1
+git clone https://github.com/KangMirae/regression-analysis.git
+cd regression-analysis
 ```
 
 ### 2. Install dependencies
@@ -214,7 +214,7 @@ http://localhost:8501
 ## 📁 Project Structure
 
 ```
-Proyecto5_Regression_Equipo1/
+regression-analysis/
 │
 ├── 📂 .streamlit/
 │   └── config.toml

@@ -485,10 +485,10 @@ with st.sidebar:
 
 #  CARGA DE MODELO
 if tipo_modelo == "Completo":
-    model= load_selected_model("modelo_multiple.pkl")
+    model= load_selected_model("models/modelo_multiple.pkl")
     columnas_modelo = ['Hours Studied', 'Previous Scores', 'Extracurricular Activities','Sleep Hours', 'Sample Question Papers Practiced']
 else:
-    model= load_selected_model("modelo_notas.pkl")
+    model= load_selected_model("models/modelo_notas.pkl")
     columnas_modelo = ['Hours Studied', 'Previous Scores']
 
 #  ZONA PRINCIPAL — Header

@@ -21,11 +21,14 @@ def load_history():
     return []
 
 def save_history(new_record):
-    existing = load_history()
-    existing.insert(0, new_record)
-    existing = existing[:50]
-    with open(HISTORY_FILE, "w") as f:
-        json.dump(existing, f)
+    try:
+        existing = load_history()
+        existing.insert(0, new_record)
+        existing = existing[:50]
+        with open(HISTORY_FILE, "w") as f:
+            json.dump(existing, f)
+    except Exception as e:
+        print(f"file save faied: {e}")
 
 #  CONFIGURACIÓN DE PÁGINA
 
@@ -378,10 +381,17 @@ def load_lottiefile(filepath: str):
 # FUNCION PARA CARGAR LOS MODELOS
 @st.cache_resource
 def load_selected_model(name):
-    path = os.path.join("notebooks", name)
+    path = os.path.join(name) 
     if os.path.exists(path):
         return joblib.load(path)
-    return None
+    else:
+        st.error(f"cannot found model: {path}") 
+        return None
+# def load_selected_model(name):
+#     path = os.path.join("notebooks", name)
+#     if os.path.exists(path):
+#         return joblib.load(path)
+#     return None
 
 # History
 
@@ -475,10 +485,10 @@ with st.sidebar:
 
 #  CARGA DE MODELO
 if tipo_modelo == "Completo":
-    model= load_selected_model("models/modelo_multiple.pkl")
+    model= load_selected_model("modelo_multiple.pkl")
     columnas_modelo = ['Hours Studied', 'Previous Scores', 'Extracurricular Activities','Sleep Hours', 'Sample Question Papers Practiced']
 else:
-    model= load_selected_model("models/modelo_notas.pkl")
+    model= load_selected_model("modelo_notas.pkl")
     columnas_modelo = ['Hours Studied', 'Previous Scores']
 
 #  ZONA PRINCIPAL — Header
